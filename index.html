@@ -718,12 +718,6 @@
     
   </swiper>
   
-    <div id="scroll-down" @click="toPostContent()">
-      <a href="javascript:;">
-        <i class="fa fa-angle-down scroll-down-effects"></i>
-      </a>
-    </div>
-  
   <canvas id="header_canvas"style="position:absolute;bottom:0;width:100%;pointer-events:none;"></canvas>
 </div>
 
@@ -1101,54 +1095,35 @@
 
 
 
-
-/* 全屏显示 */
-
+  .swiper-slide {
+    height: 450px; 
+  }
   .flag {
     width: 100%;
   }
-  .swiper-slide {
-    height: calc(100vh - 60px);
-    
-      height: 100vh;
-    
-  }
   .flag-text {
-    top: 50%;
-    left: 15%;
-    transform: translateY(-50%);
-    width: 70%;
-    height: auto;
+    left: 10%;
   }
-  .flag-text .title {
-    font-size: 2.8rem;
-    line-height: 1.5em;
-    max-height: none;
-    /* overflow: visible; */
+  .swiper-button-prev {
+    margin-left: 10%;
   }
-  .flag-text .excerpt {
-    font-size: 1.25rem;
-    height: 150px;
-  }
-  .flag-text .read-more {
-    margin-top: 10px;
-  }
-  .swiper-button-prev,
   .swiper-button-next {
-    margin-top: -60px!important;
-  }
-  .swiper-btn-color,
-  .swiper-btn-color2 {
-    background-color: transparent;
-    border: 1px solid #fff;
-  }
-  .swiper-btn-color:hover,
-  .swiper-btn-color2:hover {
-    background-color: #42b983;
-    border: 1px solid #42b983!important;
+    margin-right: 10%;
   }
   .flag-text-btns {
     justify-content: center;
+  }
+  .flag-text {
+    margin-left: 0;
+    transform: none;
+  }
+  .flag-text .title {
+    font-size: 2.2rem;
+    line-height: 1.5em;
+    max-height: none;
+  }
+  .bottom-one-btn {
+    margin-top: 15px;
   }
   .swiper-button-prev {
     margin-left: 10px;
@@ -1171,51 +1146,32 @@
   }
   @media (min-width: 992px) {
     .flag-text .excerpt {
-      line-height: 35px;
-      height: 175px;
-    }
-    .default-excerpt {
-      min-height: 150px;
-    }
-    .typed-element {
-      align-items: unset;
+      line-height: 30px;
+      height: 120px;
+      -webkit-line-clamp: 4;
     }
   }
   @media (max-width: 992px) {
-    .flag-text {
-      margin-left: 0;
-      height: 60%;
-      top: 55%;
-    }
     .flag-text .title {
       font-size: 2.4rem;
-      margin-top: 0;
+      margin-top: 20px;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
     }
     .flag-text .excerpt {
-      line-height: 35px;
-      height: 185px;
-    }
-    .flag-text .read-more {
-      margin-top: 20px;
+      line-height: 30px;
+      height: 150px;
     }
   }
   @media (max-width: 551px) {
-    .flag-text {
-      height: 60%;
-    }
-    .flag-text .title {
-      font-size: 2.2rem;
-    }
     .flag-text .excerpt {
       line-height: 30px;
+      height: 120px;
     }
-    .flag-text .read-more {
+    .flag-text .title {
       margin-top: 50px;
-      padding: 10px 30px;
     }
     .swiper-button-prev {
       margin-left: 0;
@@ -1223,10 +1179,10 @@
     .swiper-button-next {
       margin-right: 0;
     }
-    .default-excerpt {
-      margin-top: 1rem;
-    }
   }
+
+
+/* 全屏显示 */
 
 
 /* video */
