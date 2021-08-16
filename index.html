@@ -633,9 +633,9 @@
 
 
 
-<div class="swiper-length" style="display: none;">1</div>
+<div class="swiper-length" style="display: none;">2</div>
 <div id="appSwiper"
-  class="swiper-no-swiping"
+  class=""
   @mouseenter="stopAutoPlay()" 
   @mouseleave="startAutoPlay()"
 >
@@ -682,9 +682,6 @@
       
         
         
-      
-        
-        
           
           <swiper-slide>
             <div class="item swiper-lazy" data-background="https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/c080ff4434354e35af9dab0a3ee1b9f7.jpg" style=" background-size: 300000px; 
@@ -712,11 +709,46 @@
           </swiper-slide>
         
       
+        
+        
+          
+          <swiper-slide>
+            <div class="item swiper-lazy" data-background="https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/c080ff4434354e35af9dab0a3ee1b9f7.jpg!sswm" style=" background-size: 300000px; 
+            background-position: left center;" style="position: relative;">
+              <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
+              <div class="flag" style="z-index: 2;">
+                <div class="img-mask swiper-lazy" data-background="https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/c080ff4434354e35af9dab0a3ee1b9f7.jpg!sswm" style="height: 100%; background-size: cover; 
+                  background-position: center center;">
+                  <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>  
+                </div>
+                <div class="flag-text">
+                  <div class="flag-text-content">
+                    <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">
+                      <a href="/2019/01/20/hello-world/">
+                        Hello world
+                      </a>
+                    </div>
+                    <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">我是文章在轮播图中的摘要</div>
+                  </div>
+                  <div class="bottom-one-btn ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a href="/2019/01/20/hello-world/" class="read-more swiper-btn-color" style="display: inline-block; z-index:1;">阅读更多</a></div>
+                </div>
+              </div>
+            </div>
+
+          </swiper-slide>
+        
+      
     <div class="swiper-pagination" slot="pagination" pointer style="display: none;"></div>
-    <div class="swiper-button-prev swiper-button-white" pointer slot="button-prev" style="display: none;"></div>
-    <div class="swiper-button-next swiper-button-white" pointer slot="button-next" style="display: none;"></div>
+    <div class="swiper-button-prev swiper-button-white" pointer slot="button-prev" style=""></div>
+    <div class="swiper-button-next swiper-button-white" pointer slot="button-next" style=""></div>
     
   </swiper>
+  
+    <div id="scroll-down" @click="toPostContent()">
+      <a href="javascript:;">
+        <i class="fa fa-angle-down scroll-down-effects"></i>
+      </a>
+    </div>
   
   <canvas id="header_canvas"style="position:absolute;bottom:0;width:100%;pointer-events:none;"></canvas>
 </div>
@@ -796,8 +828,6 @@
     created() {}
   })
 </script>
-
-  <script src="/js/bubble/homeBubble.js"></script>
 
 <style>
 #appSwiper {
@@ -1095,35 +1125,54 @@
 
 
 
-  .swiper-slide {
-    height: 450px; 
-  }
+
+/* 全屏显示 */
+
   .flag {
     width: 100%;
   }
+  .swiper-slide {
+    height: calc(100vh - 60px);
+    
+      height: 100vh;
+    
+  }
   .flag-text {
-    left: 10%;
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+    width: 70%;
+    height: auto;
   }
-  .swiper-button-prev {
-    margin-left: 10%;
+  .flag-text .title {
+    font-size: 2.8rem;
+    line-height: 1.5em;
+    max-height: none;
+    /* overflow: visible; */
   }
+  .flag-text .excerpt {
+    font-size: 1.25rem;
+    height: 150px;
+  }
+  .flag-text .read-more {
+    margin-top: 10px;
+  }
+  .swiper-button-prev,
   .swiper-button-next {
-    margin-right: 10%;
+    margin-top: -60px!important;
+  }
+  .swiper-btn-color,
+  .swiper-btn-color2 {
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+  .swiper-btn-color:hover,
+  .swiper-btn-color2:hover {
+    background-color: #42b983;
+    border: 1px solid #42b983!important;
   }
   .flag-text-btns {
     justify-content: center;
-  }
-  .flag-text {
-    margin-left: 0;
-    transform: none;
-  }
-  .flag-text .title {
-    font-size: 2.2rem;
-    line-height: 1.5em;
-    max-height: none;
-  }
-  .bottom-one-btn {
-    margin-top: 15px;
   }
   .swiper-button-prev {
     margin-left: 10px;
@@ -1146,32 +1195,51 @@
   }
   @media (min-width: 992px) {
     .flag-text .excerpt {
-      line-height: 30px;
-      height: 120px;
-      -webkit-line-clamp: 4;
+      line-height: 35px;
+      height: 175px;
+    }
+    .default-excerpt {
+      min-height: 150px;
+    }
+    .typed-element {
+      align-items: unset;
     }
   }
   @media (max-width: 992px) {
+    .flag-text {
+      margin-left: 0;
+      height: 60%;
+      top: 55%;
+    }
     .flag-text .title {
       font-size: 2.4rem;
-      margin-top: 20px;
+      margin-top: 0;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
     }
     .flag-text .excerpt {
-      line-height: 30px;
-      height: 150px;
+      line-height: 35px;
+      height: 185px;
+    }
+    .flag-text .read-more {
+      margin-top: 20px;
     }
   }
   @media (max-width: 551px) {
-    .flag-text .excerpt {
-      line-height: 30px;
-      height: 120px;
+    .flag-text {
+      height: 60%;
     }
     .flag-text .title {
+      font-size: 2.2rem;
+    }
+    .flag-text .excerpt {
+      line-height: 30px;
+    }
+    .flag-text .read-more {
       margin-top: 50px;
+      padding: 10px 30px;
     }
     .swiper-button-prev {
       margin-left: 0;
@@ -1179,10 +1247,10 @@
     .swiper-button-next {
       margin-right: 0;
     }
+    .default-excerpt {
+      margin-top: 1rem;
+    }
   }
-
-
-/* 全屏显示 */
 
 
 /* video */
@@ -1350,24 +1418,6 @@
 			
 		
 			
-				<div class="article-link">
-					
-					<div class="article lazyload" data-original="https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/c080ff4434354e35af9dab0a3ee1b9f7.jpg" style="background-size: cover; 
-						background-position: center center;">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/2019/06/30/git%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8F%90%E4%BA%A4%E5%A4%B1%E8%B4%A5/">git提交出错</a></div>
-							<div class="content">
-								git初始化提交失败处理
-							</div>
-						</div>
-						<a href="/2019/06/30/git%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8F%90%E4%BA%A4%E5%A4%B1%E8%B4%A5/" class="more">
-							<i class="fa fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
 		
 	</div>
 </div>
@@ -1494,34 +1544,25 @@
         <div class="post-info">
           <div class="post-time">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2021-08-13</span>
+            <span class="post-time">2019-01-20</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/2021/08/13/hello-world/">Hello World</a>
+            <a class="post-title-link" href="/2019/01/20/hello-world/">Hello world</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
               <!-- 文章详情页的标签 -->
 
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hello/" rel="tag">hello</a></li></ul>
-
             </div>
             <div class="post-categories">
               <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Hello/">Hello</a>
-</div>
 
 
             </div>
           </div>
           <div class="post-img-mobile">
             
-              
-              <a href="/2021/08/13/hello-world/" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
+              <a href="/2019/01/20/hello-world/" class="lazyload" data-original="https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/c080ff4434354e35af9dab0a3ee1b9f7.jpg!sswm" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
@@ -1531,14 +1572,14 @@
           </div>
         </div>
         <div class="post-more">
-          <a href="/2021/08/13/hello-world/">
+          <a href="/2019/01/20/hello-world/">
             <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/2021/08/13/hello-world/" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
+          <a href="/2019/01/20/hello-world/" class="lazyload" data-original="https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/c080ff4434354e35af9dab0a3ee1b9f7.jpg!sswm" style="background-size: cover; 
             background-position: center center;">
           </a>
         
