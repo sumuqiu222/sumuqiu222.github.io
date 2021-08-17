@@ -1172,7 +1172,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   color: #42b983;
 }
 .bg-light-floor-tags {
-  background: ;
+  background: url("/medias/tag.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -1320,7 +1320,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   color: #42b983;
 }
 .bg-light-floor-categories {
-  background: ;
+  background: url("/medias/categories.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -1857,7 +1857,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   word-break: break-all;
 }
 .bg-light-floor-archive {
-  background: ;
+  background: url("/medias/archive.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -2072,7 +2072,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   line-height: 18px;
 }
 .bg-light-floor-tagDetail {
-  background: ;
+  background: url("/medias/tagDetail.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -2195,7 +2195,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   border-radius: 10px;
 }
 .bg-light-floor-categoryDetail {
-  background: ;
+  background: url("/medias/categoryDetail.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -2318,7 +2318,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   border-radius: 10px;
 }
 .bg-light-floor-friends {
-  background: ;
+  background: url("/medias/friend.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -2481,7 +2481,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   }
 }
 .bg-light-floor-about {
-  background: ;
+  background: url("/medias/about.jpg");
   background-size: cover;
   background-position: center center;
 }
