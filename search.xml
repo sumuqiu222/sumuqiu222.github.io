@@ -5,8 +5,8 @@
     
     <entry>
       <title>红黑树</title>
-      <link href="/posts/1003/"/>
-      <url>/posts/1003/</url>
+      <link href="/2021/06/30/hong-hei-shu/"/>
+      <url>/2021/06/30/hong-hei-shu/</url>
       
         <content type="html"><![CDATA[<p>左旋 </p><p><img "" class="lazyload placeholder" data-original="/img/%E5%B7%A6%E6%97%8B.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="左旋"></p><p>右旋 </p><p><img "" class="lazyload placeholder" data-original="/img/%E5%8F%B3%E6%97%8B.gif" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="右旋"></p>]]></content>
       
@@ -40,8 +40,8 @@
     
     <entry>
       <title>git提交出错</title>
-      <link href="/posts/1001/"/>
-      <url>/posts/1001/</url>
+      <link href="/2019/06/30/git-chu-shi-hua-ti-jiao-shi-bai/"/>
+      <url>/2019/06/30/git-chu-shi-hua-ti-jiao-shi-bai/</url>
       
         <content type="html"><![CDATA[<p>出错的具体情况如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D:\tool\idea\workspace\security-demo&gt;git push -u origin master</span><br><span class="line">To https://gitee.com/xingcx2019/spring-security-demo.git</span><br><span class="line"> ! [rejected]        master -&gt; master (non-fast-forward)</span><br><span class="line">error: failed to push some refs to &#x27;https://gitee.com/xingcx2019/spring-security-demo.git&#x27;</span><br><span class="line">hint: Updates were rejected because the tip of your current branch is behind</span><br><span class="line">hint: its remote counterpart. Integrate the remote changes (e.g.</span><br><span class="line">hint: &#x27;git pull ...&#x27;) before pushing again.</span><br><span class="line">hint: See the &#x27;Note about fast-forwards&#x27; in &#x27;git push --help&#x27; for details.</span><br></pre></td></tr></table></figure><p>本地创建了一个project<br>并在码云上创建了一个仓库，想要将本地的仓库链接到远程仓库<br>我用的是如下方法：<br>git init 初始化本地仓库<br>git remote add origin XXX 添加远程仓库地址<br>如果你在这之后就执行<br>git add -A，<br>git commit -m “ “<br>git push origin master,那么就会出现这个问题(被拒绝)，所以在remote add后不要着急git add，一定要git pull origin master，出现这个原因<br>是因为你在码云创建的仓库有ReadMe文件，而本地没有，造成本地和远程的不同步，<br>那么有两种方案可以解决：<br>one ：<br>本地没有ReadMe文件，那么就在本地生成一个：</p><p>git pull –rebase origin master 本地生成ReadMe文件<br>git push origin master</p><p>two：<br>那我就强制上传覆盖远程文件，<br>git push -f origin master<br>(这个命令在团队开发的时候最好不要用,否则可能会有生命危险)</p>]]></content>
       
@@ -67,8 +67,8 @@
     
     <entry>
       <title>Hello world</title>
-      <link href="/posts/1002/"/>
-      <url>/posts/1002/</url>
+      <link href="/2019/01/20/hello-world/"/>
+      <url>/2019/01/20/hello-world/</url>
       
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
