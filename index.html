@@ -1425,10 +1425,27 @@
         :data="listData"
         :class-option="classOption"
         class="warp"
-        style="height: 0px"
+        style="height: 30px"
       >
         <ul class="index-notice-content__ul">
           
+          
+            <li>
+              
+                <div class="index-notice-content__title">
+                  
+                    <a href="/2021/08/18/unity-xiang-guan-lian-jie/" title="新增 unity相关链接" style="color:red">
+                      新增 unity相关链接
+                    </a>
+                  
+                </div>
+                
+                  <div class="index-notice-content__date" style="color:red">
+                    2021-08-18
+                  </div>
+                
+              
+            </li>
            
         </ul>
       </vue-seamless-scroll>
@@ -1443,7 +1460,7 @@
 <script>
   var seamless = JSON.parse('false');
   seamless = seamless ? 0 : 30;
-  var listData = '' || '';
+  var listData = '[object Object]' || '';
   listData = listData.split(',');
   var vm = new Vue({
     el: '#appIndexNotice',
@@ -1477,6 +1494,24 @@
 	<h3><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>推荐文章</h3>
 	<div class="articles">
 		
+			
+				<div class="article-link">
+					
+					<div class="article lazyload" data-original="https://bkimg.cdn.bcebos.com/pic/a686c9177f3e6709c93dbafee18b883df8dcd100ffd7?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg" style="background-size: cover; 
+						background-position: center center;">
+					</div>
+					<div class="text">
+						<div class="text-main">
+							<div class="title"><a href="/2021/08/18/unity-xiang-guan-lian-jie/">Unity链接</a></div>
+							<div class="content">
+								unity相关的博客、github链接
+							</div>
+						</div>
+						<a href="/2021/08/18/unity-xiang-guan-lian-jie/" class="more">
+							<i class="fa fa-eye" aria-hidden="true"></i>阅读更多
+						</a>
+					</div>
+				</div>
 			
 		
 			
