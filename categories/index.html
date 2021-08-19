@@ -1149,9 +1149,9 @@
     function check_utterance() {
         let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
         if (isDark) {
-            bamboo.utterance.Theme = '';
+            bamboo.utterance.Theme = 'github-dark';
         } else {
-            bamboo.utterance.Theme = '';
+            bamboo.utterance.Theme = 'github-light';
         }
 
         return document.getElementById("gitment-container");
