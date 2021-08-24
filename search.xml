@@ -33,33 +33,6 @@
     
     
     <entry>
-      <title>git代码提交相关</title>
-      <link href="/2021/08/20/git-cuo-wu-ti-jiao-xiang-guan/"/>
-      <url>/2021/08/20/git-cuo-wu-ti-jiao-xiang-guan/</url>
-      
-        <content type="html"><![CDATA[<p>假如你git commit了一堆代码，但是你发现本次Commit的描述信息有点随意，你可以这样：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend -m“新的提交消息”</span><br></pre></td></tr></table></figure><p>你本来打算Commit五个文件，但是由于疏忽你Commit了四个。当然你可以再Commit一次来进行弥补这个失误。但是多了一次Commit，按道理它们应该在一次Commit中。git commit –amend也能帮你解决这个问题：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add 忘记提交的文件 </span><br><span class="line">git commit --amend --no-edit</span><br></pre></td></tr></table></figure><p>提交错了想撤回本次提交，无论是撤回远程的还是本地的，你可以使用git reset搞定，如下面这个例子：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br><span class="line"># 最新的</span><br><span class="line">commit e49850be48f25d58b977b778d59c48a41e482bb4 (HEAD -&gt; master)</span><br><span class="line">Author: felord.cn &lt;dax@felord.cn&gt;</span><br><span class="line">Date:   Sun Nov 1 23:39:33 2020 +0800</span><br><span class="line"></span><br><span class="line">    &#x27;readme&#x27;</span><br><span class="line"># 次新的</span><br><span class="line">commit 8e7089f62ad8588f5710f23d6a8ce1158490032b (origin/master, origin/HEAD)</span><br><span class="line">Author: felord.cn &lt;dax@felord.cn&gt;</span><br><span class="line">Date:   Sun Nov 1 22:06:21 2020 +0800</span><br></pre></td></tr></table></figure><p>通过git log我们查询获得了最新的两次提交，但是最新的提交e49850be48f25d58b977b778d59c48a41e482bb4 我们想撤回，也就是把最新的提交移动到第二个上面。我们只需要执行 git reset –soft 目标提交commitId ，上述例子中的commitId=8e7089f62ad8588f5710f23d6a8ce1158490032b 。</p><p>git reset有四种模式 soft、mixed、hard、keep<br><img "" class="lazyload placeholder" data-original="/img/gitreset.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="gitreset"><br>git revert 也能实现，区别在于revert会产生一次Commit，需要填写提交信息。</p><p>代码已经推送到远程服务器了，我想撤回某个文件，你可以这么操作：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看文件历史版本</span><br><span class="line">git log &lt;filename&gt;</span><br><span class="line"># 回滚到指定commitId</span><br><span class="line">git checkout &lt;commitId&gt; &lt;filename&gt;</span><br><span class="line"># 提交被修改的文件</span><br><span class="line">git commit -m &#x27;回滚特定文件的变动&#x27;</span><br><span class="line"># 推送</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 版本控制 </category>
-          
-          <category> Git </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> git </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>idea崩溃</title>
       <link href="/2021/08/20/idea-beng-kui-bao-cuo/"/>
       <url>/2021/08/20/idea-beng-kui-bao-cuo/</url>
@@ -81,6 +54,33 @@
         <tags>
             
             <tag> jetbrains </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git代码提交相关</title>
+      <link href="/2021/08/20/git-cuo-wu-ti-jiao-xiang-guan/"/>
+      <url>/2021/08/20/git-cuo-wu-ti-jiao-xiang-guan/</url>
+      
+        <content type="html"><![CDATA[<p>假如你git commit了一堆代码，但是你发现本次Commit的描述信息有点随意，你可以这样：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend -m“新的提交消息”</span><br></pre></td></tr></table></figure><p>你本来打算Commit五个文件，但是由于疏忽你Commit了四个。当然你可以再Commit一次来进行弥补这个失误。但是多了一次Commit，按道理它们应该在一次Commit中。git commit –amend也能帮你解决这个问题：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add 忘记提交的文件 </span><br><span class="line">git commit --amend --no-edit</span><br></pre></td></tr></table></figure><p>提交错了想撤回本次提交，无论是撤回远程的还是本地的，你可以使用git reset搞定，如下面这个例子：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br><span class="line"># 最新的</span><br><span class="line">commit e49850be48f25d58b977b778d59c48a41e482bb4 (HEAD -&gt; master)</span><br><span class="line">Author: felord.cn &lt;dax@felord.cn&gt;</span><br><span class="line">Date:   Sun Nov 1 23:39:33 2020 +0800</span><br><span class="line"></span><br><span class="line">    &#x27;readme&#x27;</span><br><span class="line"># 次新的</span><br><span class="line">commit 8e7089f62ad8588f5710f23d6a8ce1158490032b (origin/master, origin/HEAD)</span><br><span class="line">Author: felord.cn &lt;dax@felord.cn&gt;</span><br><span class="line">Date:   Sun Nov 1 22:06:21 2020 +0800</span><br></pre></td></tr></table></figure><p>通过git log我们查询获得了最新的两次提交，但是最新的提交e49850be48f25d58b977b778d59c48a41e482bb4 我们想撤回，也就是把最新的提交移动到第二个上面。我们只需要执行 git reset –soft 目标提交commitId ，上述例子中的commitId=8e7089f62ad8588f5710f23d6a8ce1158490032b 。</p><p>git reset有四种模式 soft、mixed、hard、keep<br><img "" class="lazyload placeholder" data-original="/img/gitreset.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="gitreset"><br>git revert 也能实现，区别在于revert会产生一次Commit，需要填写提交信息。</p><p>代码已经推送到远程服务器了，我想撤回某个文件，你可以这么操作：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看文件历史版本</span><br><span class="line">git log &lt;filename&gt;</span><br><span class="line"># 回滚到指定commitId</span><br><span class="line">git checkout &lt;commitId&gt; &lt;filename&gt;</span><br><span class="line"># 提交被修改的文件</span><br><span class="line">git commit -m &#x27;回滚特定文件的变动&#x27;</span><br><span class="line"># 推送</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 版本控制 </category>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
             
         </tags>
       
