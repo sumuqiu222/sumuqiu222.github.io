@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>unity插件-nodeCanvas | 邢晨旭的博客</title>
+  <title>jvm详解 | 邢晨旭的博客</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -652,7 +652,7 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="https://unity-cn-cdn-prd.unitychina.cn/assets/styles/i/cn/plate/banner-template1@2x.0f41c70f647b5a8b4b700a39f9ab6a81.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/2.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
@@ -660,7 +660,7 @@
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        unity插件-nodeCanvas
+        jvm详解
       </span>
     </div>
     
@@ -675,12 +675,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> 分类：
           
-            <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="post-detail-header_category">
-              游戏开发
-            </a>
-          
-            <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Unity/" class="post-detail-header_category">
-              Unity
+            <a href="/categories/Java/" class="post-detail-header_category">
+              Java
             </a>
           
         </span>
@@ -702,173 +698,45 @@
     <article class="post post-detail">
       
       <div class="post-content">
-        <h3 id="nodeCanvas"><a href="#nodeCanvas" class="headerlink" title="nodeCanvas"></a>nodeCanvas</h3><h4 id="教程链接"><a href="#教程链接" class="headerlink" title="教程链接"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ML411x7TD">教程链接</a></h4><h4 id="黑板（Blackboard）"><a href="#黑板（Blackboard）" class="headerlink" title="黑板（Blackboard）"></a>黑板（Blackboard）</h4><h5 id="BBParameters；”Self”-Parameter"><a href="#BBParameters；”Self”-Parameter" class="headerlink" title="BBParameters；”Self” Parameter"></a><strong>BBParameters</strong>；”Self” Parameter</h5><h5 id="数据绑定变量"><a href="#数据绑定变量" class="headerlink" title="数据绑定变量"></a>数据绑定变量</h5><blockquote>
-<p>添加到 Blackboard 中的变量可以绑定到与 Blackboard 存在于同一游戏对象上的任何组件的属性上</p>
+        <h3 id="1-内存区域"><a href="#1-内存区域" class="headerlink" title="1.内存区域"></a>1.内存区域</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41701956/article/details/81664921">引用博客</a></p>
+<h4 id="1-1运行时数据区域"><a href="#1-1运行时数据区域" class="headerlink" title="1.1运行时数据区域"></a>1.1运行时数据区域</h4><p><img "" class="lazyload placeholder" data-original="/img/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.webp" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="运行时数据区域"></p>
+<h5 id="1-1-1-程序计数器"><a href="#1-1-1-程序计数器" class="headerlink" title="1.1.1 程序计数器"></a>1.1.1 程序计数器</h5><blockquote>
+<p>1、内存空间小，线程私有。字节码解释器工作是就是通过改变这个计数器的值来选取下一条需要执行指令的字节码指令，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖计数器完成</p>
+<p>2、如果线程正在执行一个 Java 方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是 Native 方法，这个计数器的值则为 (Undefined)。此内存区域是唯一一个在 Java 虚拟机规范中没有规定任何 OutOfMemoryError 情况的区域</p>
+<p>3、指向当前线程正在执行的字节码的地址和行号。<br>程序执行的最小单位是线程，线程A和线程B对CPU的时间片资源是抢占式争夺，任何一个线程在使用CPU的时候，其他线程就被挂起，无法使用CPU。<br>当一个优先级更高的线程要抢占当前CPU资源时，当前线程可能未必执行完毕就被挂起，此时就需要保存现场信息，以便当前线程再次抢到CPU资源后继续执行。<br>程序计数器的作用就是保存现场信息，每个线程都有自己的程序计数器。</p>
+</blockquote>
+<h5 id="1-1-2-Java-虚拟机栈"><a href="#1-1-2-Java-虚拟机栈" class="headerlink" title="1.1.2 Java 虚拟机栈"></a>1.1.2 Java 虚拟机栈</h5><blockquote>
+<p>线程私有，生命周期和线程一致。描述的是 Java 方法执行的内存模型：每个方法在执行时都会床创建一个栈帧(Stack Frame)用于存储<code>局部变量表</code>、<code>操作数栈</code>、<code>动态链接</code>、<code>方法出口</code>等信息。每一个方法从调用直至执行结束，就对应着一个栈帧从虚拟机栈中入栈到出栈的过程。</p>
+<blockquote>
+<p>局部变量表：存放了编译期可知的各种基本类型(boolean、byte、char、short、int、float、long、double)、对象引用(reference 类型)和 returnAddress 类型(指向了一条字节码指令的地址)</p>
 </blockquote>
 <blockquote>
-<p>Save Blackboard 和 Load Blackboard</p>
+<p>StackOverflowError：线程请求的栈深度大于虚拟机所允许的深度。</p>
 </blockquote>
 <blockquote>
-<p>通过“Tools/ParadoxNotion/NodeCanvas/Create/Global Scene Blackboard”菜单命令创建全局Blackboard </p>
-<blockquote>
-<p>全局Blackboard 在加载场景之间保持不变 (DontDestroyOnLoad)</p>
-</blockquote>
-<blockquote>
-<p>属性全局共享</p>
+<p>OutOfMemoryError：如果虚拟机栈可以动态扩展，而扩展时无法申请到足够的内存</p>
 </blockquote>
 </blockquote>
-<blockquote>
-<p><em>DynamicVar</em> 使用动态变量允许您直接输入在运行时需要创建的变量的名称</p>
-<blockquote>
-<p>无需在黑板上预定义</p>
+<h5 id="1-1-3-本地方法栈"><a href="#1-1-3-本地方法栈" class="headerlink" title="1.1.3 本地方法栈"></a>1.1.3 本地方法栈</h5><blockquote>
+<p>对于绝大多数应用来说，这块区域是 JVM 所管理的内存中最大的一块。线程共享，主要是存放对象实例和数组。内部会划分出多个线程私有的分配缓冲区(Thread Local Allocation Buffer, TLAB)。可以位于物理上不连续的空间，但是逻辑上要连续。</p>
+<p>OutOfMemoryError：如果堆中没有内存完成实例分配，并且堆也无法再扩展时，抛出该异常。</p>
 </blockquote>
-<blockquote>
-<p>动态变量应该以下划线“_”开头</p>
+<h5 id="1-1-4-Java-堆"><a href="#1-1-4-Java-堆" class="headerlink" title="1.1.4 Java 堆"></a>1.1.4 Java 堆</h5><blockquote>
+<p>属于共享内存区域，存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
 </blockquote>
-</blockquote>
-<h4 id="行为树（Behaviour-Trees）"><a href="#行为树（Behaviour-Trees）" class="headerlink" title="行为树（Behaviour Trees）"></a>行为树（Behaviour Trees）</h4><h5 id="BT-Nodes"><a href="#BT-Nodes" class="headerlink" title="BT Nodes"></a>BT Nodes</h5><h6 id="叶子节点"><a href="#叶子节点" class="headerlink" title="叶子节点"></a>叶子节点</h6><p>叶节点根本没有子节点，它们位于分支的末端</p>
-<blockquote>
-<p><strong>Action</strong></p>
-<blockquote>
-<p>动作节点-执行分配的动作任务。Action 节点将保持 Running 直到 Action Task 完成，根据分配的 Action Task 返回 Success 或 Failure</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>Condition</strong></p>
-<blockquote>
-<p>条件节点-执行条件任务并根据该条件任务返回Success 或 Failure</p>
-</blockquote>
-</blockquote>
-<h6 id="复合节点"><a href="#复合节点" class="headerlink" title="复合节点"></a>复合节点</h6><p>Composites work with multiple chid nodes and execute them in some order based on the composite functionality.</p>
-<p>复合节点 与多个子节点一起工作，并根据不同的复合类型按照规定的顺序执行它们</p>
-<blockquote>
-<p><strong>Sequencer</strong></p>
-<blockquote>
-<p>Sequencer 按照从左到右的顺序执行它的子节点。一旦任何子节点返回Failure，它就会返回Failure。如果所有孩子都返回成功，它将返回成功。</p>
-</blockquote>
-<blockquote>
-<p>若一个子状态返回失败，Sequencer将中断当前正在运行的子状态并返回失败</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>Selector</strong></p>
-<blockquote>
-<p>Selector 按从左到右的顺序执行它的子节点。只要任何子节点返回成功，它就会返回成功。如果所有子节点都返回失败，它将返回失败。</p>
-<p>若一个子状态返回成功，Selector 将中断当前正在运行的子状态并返回成功</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>Probability Selector</strong></p>
-<blockquote>
-<p>Probability Selector将根据被选中的概率选择并执行子节点。如果选定的子节点返回成功，概率选择器也将返回成功。如果它返回Failure，则会选择一个新的子节点。如果没有孩子返回成功，Probability Selector将返回失败，如果引入Failure Chance，则可能立即返回失败</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>Priority Selector</strong></p>
-<blockquote>
-<p>Priority Selector类似于普通的选择器，但会根据每个子节点的优先级来选择执行的顺序。一旦您连接子节点，就会显示优先权重，您可以直接或通过 Blackboard 变量更改这些权重</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>Parallel</strong></p>
-<blockquote>
-<p>Parallel 将同时执行它的所有子节点。它可以设置为具有 Sequencer 或 Selector 的策略，如下所示：</p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>如果设置为<strong>First Failure</strong>，那么只要任何子节点返回Failure，并行将重置所有当前正在运行的子节点并返回Failure。否则，当所有子节点都返回 Success 时，它将返回 Success</p>
-</blockquote>
-<blockquote>
-<p>如果设置为<strong>First Success</strong>，那么只要任何子节点返回 Success ，并行将重置所有当前正在运行的子节点并返回 Success 。否则，当所有孩子都返回失败时，它将返回失败</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>Flip Selector</strong></p>
-<blockquote>
-<p>Flip Selector 的工作方式与普通 Selector 类似，但是一旦子节点返回 Success，它就会移动到末尾（右侧）</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>Switch</strong></p>
-<blockquote>
-<p>Switch 节点可以切换 Enum 或 Integer 值。根据当前的 Enum 或整数值是什么，它将执行相应的子节点。中断之前正在运行的子节点</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>Step Sequencer</strong></p>
-<blockquote>
-<p>与执行所有子节点直到失败的普通 Sequencer 相比，Step Sequencer 会在每次 Step Sequencer 执行时一一执行其子级。无论成功或失败，都返回已执行的子状态</p>
-</blockquote>
-</blockquote>
-<h6 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h6><p>装饰器总是有一个子节点。他们通常为那个孩子提供额外的功能，过滤它或以某种方式修改它</p>
-<blockquote>
-<p><strong>Interruptor</strong></p>
-<blockquote>
-<p>Interruptor被分配了一个条件任务。如果条件为真或变为真，则子节点将在 Running 时被中断，并且 Interruptor 将返回 Failure。</p>
-</blockquote>
-<p><strong>Conditional</strong></p>
-<blockquote>
-<p>仅当分配的条件为真时，Conditional 才会执行它的子节点，然后它将返回子节点返回的任何内容。如果条件为假但子节点尚未运行，它将返回失败。所以换句话说，如果条件即使在一帧内成功，即使条件不再成立，子节点也会执行并且不会被中断</p>
-</blockquote>
-<p><strong>Inverter</strong></p>
-<blockquote>
-<p>逆变器将其子节点的成功和失败返回状态重新映射到相反的状态</p>
-</blockquote>
-<p><strong>Repeater</strong></p>
-<blockquote>
-<p>Repeater 将重复它的子代<strong>Number of Times</strong>，或者<strong>直到</strong>它返回指定的状态，或者<strong>Forever</strong></p>
-</blockquote>
-<p><strong>Filter</strong></p>
-<blockquote>
-<p>过滤其子节点的访问特定次数<em>或每个特定时间量（如Cooldown）。默认情况下，如果此节点被过滤，则该节点将被视为与其父节点相关的</em>非活动状态。取消选中此选项将返回失败</p>
-</blockquote>
-<p><strong>Iterator</strong></p>
-<blockquote>
-<p>Iterator 将迭代从 Blackboard 中取出的 List。在每次迭代中，当前迭代的元素将保存在同一个黑板上，并使用提供的名称并执行子节点</p>
-<p>Iterator 可以选择设置为在装饰节点返回 Success 或 Failure 时立即终止迭代。如果没有设置终止条件*(NONE)*或者如果列表被迭代并且不满足终止条件，那么迭代器将返回最后一次迭代子执行返回的任何内容</p>
-<p>如果选中重置索引，则迭代器将在重置时将当前迭代索引重置为零，否则索引将保留，除非它是列表的最后一个索引</p>
-</blockquote>
-<p><strong>Timeout</strong></p>
-<blockquote>
-<p>如果子节点运行的时间超过指定的秒数，则超时装饰器将中断子节点运行</p>
-</blockquote>
-<p><strong>Wait Until</strong></p>
-<blockquote>
-<p>等待直到将返回运行，直到分配的条件任务变为真。如果在孩子被勾选后条件变为假，它不会中断它。仅当孩子尚未运行时检查条件</p>
-</blockquote>
-<p><strong>Optional</strong></p>
-<blockquote>
-<p>可选装饰器不考虑其成功或失败返回状态的情况下执行装饰的子节点</p>
-</blockquote>
-<p><strong>Guard</strong></p>
-<blockquote>
-<p>如果具有相同指定令牌的另一个 Guard 已经在保护（运行）该令牌，则保护装饰的子进程免于运行</p>
-</blockquote>
-<p><strong>Override Agent</strong></p>
-<blockquote>
-<p>覆盖代理将为行为树的其余部分设置另一个代理</p>
-</blockquote>
-</blockquote>
-<h4 id="状态机（State-Machines-FSM-）"><a href="#状态机（State-Machines-FSM-）" class="headerlink" title="状态机（State Machines (FSM)）"></a>状态机（State Machines (FSM)）</h4><h4 id="对话树（Dialogue-Tree）"><a href="#对话树（Dialogue-Tree）" class="headerlink" title="对话树（Dialogue Tree）"></a>对话树（Dialogue Tree）</h4><h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><blockquote>
-<p><strong>右键单击</strong>画布以添加新节点。<br><strong>单击</strong>并拖动以平移节点。<br><strong>中键单击</strong>并拖动 以平移画布。<br><strong>ALT + 单击</strong>并拖动以平移画布。这在没有鼠标中键的笔记本电脑中很有用！<br><strong>Shift + 单击</strong>并拖动一个节点以将它及其所有子节点平移在一起；平移一个分支。<br><strong>单击并从目标节点上的端口拖动</strong>以进行连接。右键单击已连接的端口以断开连接。</p>
-<p><strong>单击并从端口拖动</strong>到空白画布空间，将显示上下文菜单以自动创建和连接新节点。<br><strong>单击连接的端口</strong>或连接本身以选择连接。<br>使用<strong>删除键</strong>或通过右键单击上下文菜单删除选定的节点或连接。<br><strong>Control + D</strong>复制节点，或通过右键单击上下文菜单。<br><strong>双击节点</strong>将在 IDE 中打开它的脚本，除非它是嵌套节点，在这种情况下它将打开嵌套树。<br>通过<strong>单击</strong>并将其拖到新节点上来重新链接连接。按住Shift 键重新链接源而不是目标。<br>点击<strong>“F”</strong>会将画布聚焦在其中所有节点的中心。<br><strong>鼠标滚轮</strong>将放大/缩小画布。<br>在<strong>画布中左键单击</strong>并拖动，将允许您创建一个选择矩形。<br>在选择矩形时按住 <strong>Control并释放鼠标按钮</strong>，将创建一个画布组。</p>
-<p>右键单击节点或连接链接，将显示上下文菜单。根据节点或连接类型，可能有不同的额外选项。以下是常见的操作：</p>
-<p><strong>删除</strong>：删除节点或连接。 （也可在多选中使用）。<br><strong>复制节点</strong>：复制可能稍后粘贴的节点。 （也可在多选中使用）<br><strong>复制分配的任务</strong>：将复制已分配给节点或连接的任务。<br><strong>粘贴分配的任务</strong>：将当前复制的任务粘贴到节点或连接并分配它。<br>甚至可以跨不同图形完成分配任务的复制粘贴！</p>
-<p>要复制单个任务，请右键单击相关任务并选择“复制任务”。<br>要粘贴以前复制的任务，请在可以分配任务的节点检查器中点击“分配任务”按钮，然后在弹出菜单中选择“粘贴任务”选项</p>
-</blockquote>
+<p><img "" class="lazyload placeholder" data-original="/img/%E5%8C%BA%E5%9F%9F%E5%AD%98%E5%82%A8%E7%9A%84%E5%86%85%E5%AE%B9.webp" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="区域存储的内容"></p>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/unity/" class="">
-              unity
+            <a href="/tags/jvm/" class="">
+              jvm
             </a>
           
-            <a href="/tags/C/" class="">
-              C#
+            <a href="/tags/gc/" class="">
+              gc
             </a>
           
         </div>
@@ -882,7 +750,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2021/09/13/nodecanvas/" target="_blank" title="unity插件-nodeCanvas">https://xingchenxuup.github.io/2021/09/13/nodecanvas/</a>
+    <a href="/2021/09/13/jvm/" target="_blank" title="jvm详解">https://xingchenxuup.github.io/2021/09/13/jvm/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -900,26 +768,6 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
-      background-position: center center;">
-    </div>
-    <a href="/2021/09/13/jvm/" class="post-nav-link">
-      <div class="title">
-        <i class="fa fa-angle-left"></i> 上一篇:
-        <div class="title-text">jvm详解</div>
-      </div>
-      
-      <!-- <div class="content">
-        1.内存区域引用博客
-1.1运行时数据区域
-1.1.1 程序计数器
-1、内存空间小，线程私有。字节码解释器工作是就是通过
-      </div> -->
-    </a>
-  </div>
-
 
 
   
@@ -927,14 +775,13 @@
     <div class="post-nav-img lazyload" data-original="https://unity-cn-cdn-prd.unitychina.cn/assets/styles/i/cn/plate/banner-template1@2x.0f41c70f647b5a8b4b700a39f9ab6a81.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/08/20/c-bi-ji/" class="post-nav-link">
+    <a href="/2021/09/13/nodecanvas/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fa fa-angle-right"></i>
-        <div class="title-text">C#笔记</div>
+        <div class="title-text">unity插件-nodeCanvas</div>
       </div>
       <!-- <div class="content">
-        Action参数回调Action callback代表callback回调方法是带有一个TResult类型的参数
-123
+        nodeCanvas教程链接黑板（Blackboard）BBParameters；”Self” Parameter数据绑
       </div> -->
     </a>
   </div>
@@ -1102,7 +949,7 @@
   <script>
     function openBtnClickFn () {
       let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
-      let open = eval('true' || 'false');
+      let open = eval('' || 'false');
       openOrCloseBtn.click(function() {
         if (open === true) {
           $(".toc-aside").css({'width': 0, 'padding': 0});

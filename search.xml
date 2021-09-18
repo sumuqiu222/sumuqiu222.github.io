@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>jvm详解</title>
+      <link href="/2021/09/13/jvm/"/>
+      <url>/2021/09/13/jvm/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-内存区域"><a href="#1-内存区域" class="headerlink" title="1.内存区域"></a>1.内存区域</h3><p><a href="https://blog.csdn.net/qq_41701956/article/details/81664921">引用博客</a></p><h4 id="1-1运行时数据区域"><a href="#1-1运行时数据区域" class="headerlink" title="1.1运行时数据区域"></a>1.1运行时数据区域</h4><p><img "" class="lazyload placeholder" data-original="/img/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.webp" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="运行时数据区域"></p><h5 id="1-1-1-程序计数器"><a href="#1-1-1-程序计数器" class="headerlink" title="1.1.1 程序计数器"></a>1.1.1 程序计数器</h5><blockquote><p>1、内存空间小，线程私有。字节码解释器工作是就是通过改变这个计数器的值来选取下一条需要执行指令的字节码指令，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖计数器完成</p><p>2、如果线程正在执行一个 Java 方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是 Native 方法，这个计数器的值则为 (Undefined)。此内存区域是唯一一个在 Java 虚拟机规范中没有规定任何 OutOfMemoryError 情况的区域</p><p>3、指向当前线程正在执行的字节码的地址和行号。<br>程序执行的最小单位是线程，线程A和线程B对CPU的时间片资源是抢占式争夺，任何一个线程在使用CPU的时候，其他线程就被挂起，无法使用CPU。<br>当一个优先级更高的线程要抢占当前CPU资源时，当前线程可能未必执行完毕就被挂起，此时就需要保存现场信息，以便当前线程再次抢到CPU资源后继续执行。<br>程序计数器的作用就是保存现场信息，每个线程都有自己的程序计数器。</p></blockquote><h5 id="1-1-2-Java-虚拟机栈"><a href="#1-1-2-Java-虚拟机栈" class="headerlink" title="1.1.2 Java 虚拟机栈"></a>1.1.2 Java 虚拟机栈</h5><blockquote><p>线程私有，生命周期和线程一致。描述的是 Java 方法执行的内存模型：每个方法在执行时都会床创建一个栈帧(Stack Frame)用于存储<code>局部变量表</code>、<code>操作数栈</code>、<code>动态链接</code>、<code>方法出口</code>等信息。每一个方法从调用直至执行结束，就对应着一个栈帧从虚拟机栈中入栈到出栈的过程。</p><blockquote><p>局部变量表：存放了编译期可知的各种基本类型(boolean、byte、char、short、int、float、long、double)、对象引用(reference 类型)和 returnAddress 类型(指向了一条字节码指令的地址)</p></blockquote><blockquote><p>StackOverflowError：线程请求的栈深度大于虚拟机所允许的深度。</p></blockquote><blockquote><p>OutOfMemoryError：如果虚拟机栈可以动态扩展，而扩展时无法申请到足够的内存</p></blockquote></blockquote><h5 id="1-1-3-本地方法栈"><a href="#1-1-3-本地方法栈" class="headerlink" title="1.1.3 本地方法栈"></a>1.1.3 本地方法栈</h5><blockquote><p>对于绝大多数应用来说，这块区域是 JVM 所管理的内存中最大的一块。线程共享，主要是存放对象实例和数组。内部会划分出多个线程私有的分配缓冲区(Thread Local Allocation Buffer, TLAB)。可以位于物理上不连续的空间，但是逻辑上要连续。</p><p>OutOfMemoryError：如果堆中没有内存完成实例分配，并且堆也无法再扩展时，抛出该异常。</p></blockquote><h5 id="1-1-4-Java-堆"><a href="#1-1-4-Java-堆" class="headerlink" title="1.1.4 Java 堆"></a>1.1.4 Java 堆</h5><blockquote><p>属于共享内存区域，存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p></blockquote><p><img "" class="lazyload placeholder" data-original="/img/%E5%8C%BA%E5%9F%9F%E5%AD%98%E5%82%A8%E7%9A%84%E5%86%85%E5%AE%B9.webp" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="区域存储的内容"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> jvm </tag>
+            
+            <tag> gc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>unity插件-nodeCanvas</title>
       <link href="/2021/09/13/nodecanvas/"/>
       <url>/2021/09/13/nodecanvas/</url>
@@ -98,11 +125,11 @@
       
       <categories>
           
+          <category> Java </category>
+          
           <category> 开发工具 </category>
           
           <category> Jetbrains </category>
-          
-          <category> Java </category>
           
       </categories>
       
@@ -158,11 +185,11 @@
       
       <categories>
           
+          <category> Java </category>
+          
           <category> 数据结构 </category>
           
           <category> java </category>
-          
-          <category> Java </category>
           
           <category> map </category>
           
