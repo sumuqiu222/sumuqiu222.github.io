@@ -1531,330 +1531,11 @@
 </style>
 <!-- 首页座右铭 -->
 
-  <div class="motto">
-      <h3 class="motto-title">座右铭</h3>
-      <div class="motto-content">
-        <p>
-          沉淀后我愿意做个温暖的人，有自己的喜好，有自己的原则，有自己的信仰，不急功近利，不浮夸轻薄。宠辱不惊，淡定安逸，心静如水，不忘初心，方得始终。——凌茜  
-        </p> 
-      </div>
-  </div>
-
 <!-- 首页公告 -->
-
-<style>
-  .index-notice-content {
-    margin-top: 10px;
-  }
-  .warp {
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  .index-notice-content__ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-  }
-  .index-notice-content__ul li,
-  .index-notice-content__ul a {
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 15px;
-  }
-  .index-notice-content__title {
-    flex: 1;
-    overflow: hidden;
-  }
-  .index-notice-content__title a,
-  .index-notice-content__title span {
-    overflow: hidden;
-    display: block;
-    text-overflow:ellipsis; 
-    white-space: nowrap;
-    height: 100%;
-    width: 100%;
-    color: #000;
-  }
-  .index-notice-content__title a:hover,
-  .index-notice-content__title span:hover {
-    text-decoration: underline;
-  }
-  .index-notice-content__date {
-    min-width: 80px;
-    margin-left: 5px;
-    color: #000;
-  }
-</style>
-<div class="index-notice" id="appIndexNotice">
-    <h3>
-      <i class="fa fa-bullhorn index-notice-icon"></i>公告
-    </h3>
-    <div class="index-notice-content">
-      
-      <vue-seamless-scroll
-        :data="listData"
-        :class-option="classOption"
-        class="warp"
-        style="height: 120px"
-      >
-        <ul class="index-notice-content__ul">
-          
-          
-            <li>
-              
-                <div class="index-notice-content__title">
-                  
-                    <a href="/2021/09/18/jvm/" title="新增JVM详解-更新中" style="color:blue">
-                      新增JVM详解-更新中
-                    </a>
-                  
-                </div>
-                
-                  <div class="index-notice-content__date" style="color:blue">
-                    2021-09-18
-                  </div>
-                
-              
-            </li>
-          
-            <li>
-              
-                <div class="index-notice-content__title">
-                  
-                    <a href="/2021/09/13/nodecanvas/" title="新增 nodecanvas文档翻译-更新中" style="color:red">
-                      新增 nodecanvas文档翻译-更新中
-                    </a>
-                  
-                </div>
-                
-                  <div class="index-notice-content__date" style="color:red">
-                    2021-09-13
-                  </div>
-                
-              
-            </li>
-          
-            <li>
-              
-                <div class="index-notice-content__title">
-                  
-                    <a href="/2021/08/18/unity-xiang-guan-lian-jie/" title="新增 unity相关链接" style="color:blue">
-                      新增 unity相关链接
-                    </a>
-                  
-                </div>
-                
-                  <div class="index-notice-content__date" style="color:blue">
-                    2021-08-17
-                  </div>
-                
-              
-            </li>
-          
-            <li>
-              
-                <div class="index-notice-content__title">
-                  
-                    <a href="/" title="PUN中文教程文档-PUNTutorial 教程译文-联系我哦" style="color:red">
-                      PUN中文教程文档-PUNTutorial 教程译文-联系我哦
-                    </a>
-                  
-                </div>
-                
-                  <div class="index-notice-content__date" style="color:red">
-                    2021-08-18
-                  </div>
-                
-              
-            </li>
-           
-        </ul>
-      </vue-seamless-scroll>
-    </div>
-</div>
-<script src="/js/vue-seamless-scroll/index.js"></script>
-
-<!-- 滚动插件采用 vue-seamless-scroll
-  https://chenxuan0000.github.io/vue-seamless-scroll/zh/guide/06-singleStop.html 
--->
-
-<script>
-  var seamless = JSON.parse('false');
-  seamless = seamless ? 0 : 30;
-  var listData = '[object Object],[object Object],[object Object],[object Object]' || '';
-  listData = listData.split(',');
-  var vm = new Vue({
-    el: '#appIndexNotice',
-    data: {
-      listData: listData,
-      moveNum: 2,
-      classOption: {
-        singleHeight: seamless,
-        limitMoveNum: listData.length
-      },
-    },
-    computed: {
-    },
-    mounted() {
-    },
-    methods: {
-    },
-    created() {
-      this.moveNum = parseInt(this.listData.length);
-    }
-  })
-</script>
-
-
 
 <!-- 首页文章置顶 -->
 
 
-
-<div class="topArticle reveal">
-	<h3><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>推荐文章</h3>
-	<div class="articles">
-		
-			
-		
-			
-				<div class="article-link">
-					
-					<div class="article lazyload" data-original="/medias/10.jpg" style="background-size: cover; 
-						background-position: center center;">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/2021/09/22/netty01-nio/">Netty 基础</a></div>
-							<div class="content">
-								转自黑马教程-Netty教程
-							</div>
-						</div>
-						<a href="/2021/09/22/netty01-nio/" class="more">
-							<i class="fa fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
-		
-			
-		
-			
-		
-			
-				<div class="article-link">
-					
-					<div class="article lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
-						background-position: center center;">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/2021/09/13/jvm/">jvm详解</a></div>
-							<div class="content">
-								java虚拟机-jvm详解
-							</div>
-						</div>
-						<a href="/2021/09/13/jvm/" class="more">
-							<i class="fa fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
-		
-			
-				<div class="article-link">
-					
-					<div class="article lazyload" data-original="https://unity-cn-cdn-prd.unitychina.cn/assets/styles/i/cn/plate/banner-template1@2x.0f41c70f647b5a8b4b700a39f9ab6a81.jpg" style="background-size: cover; 
-						background-position: center center;">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/2021/09/13/nodecanvas/">unity插件-nodeCanvas</a></div>
-							<div class="content">
-								unity插件-nodeCanvas
-							</div>
-						</div>
-						<a href="/2021/09/13/nodecanvas/" class="more">
-							<i class="fa fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
-		
-			
-		
-			
-				<div class="article-link">
-					
-					<div class="article lazyload" data-original="https://sh-xcx-blog.oss-cn-shanghai.aliyuncs.com/git.png" style="background-size: cover; 
-						background-position: center center;">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/2021/08/20/git-cuo-wu-ti-jiao-xiang-guan/">git代码提交相关</a></div>
-							<div class="content">
-								git提交以及修正的n种姿势
-							</div>
-						</div>
-						<a href="/2021/08/20/git-cuo-wu-ti-jiao-xiang-guan/" class="more">
-							<i class="fa fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
-		
-			
-				<div class="article-link">
-					
-					<div class="article lazyload" data-original="https://sh-xcx-blog.oss-cn-shanghai.aliyuncs.com/idea-bg.jpeg" style="background-size: cover; 
-						background-position: center center;">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/2021/08/20/idea-beng-kui-bao-cuo/">idea崩溃</a></div>
-							<div class="content">
-								idea崩了打不开
-							</div>
-						</div>
-						<a href="/2021/08/20/idea-beng-kui-bao-cuo/" class="more">
-							<i class="fa fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
-		
-			
-				<div class="article-link">
-					
-					<div class="article lazyload" data-original="https://unity-cn-cdn-prd.unitychina.cn/assets/styles/i/cn/plate/banner-template1@2x.0f41c70f647b5a8b4b700a39f9ab6a81.jpg" style="background-size: cover; 
-						background-position: center center;">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/2021/08/18/unity-xiang-guan-lian-jie/">Unity链接</a></div>
-							<div class="content">
-								unity相关的博客、github链接
-							</div>
-						</div>
-						<a href="/2021/08/18/unity-xiang-guan-lian-jie/" class="more">
-							<i class="fa fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
-		
-			
-		
-			
-		
-			
-		
-	</div>
-</div>
 
 
 <!-- hash算法 -->
@@ -1867,17 +1548,17 @@
         <div class="post-info">
           <div class="post-time">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2019-06-30</span>
+            <span class="post-time">2021-08-20</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/2019/06/30/git-chu-shi-hua-ti-jiao-shi-bai/">git提交出错</a>
+            <a class="post-title-link" href="/2021/08/20/idea-beng-kui-bao-cuo/">idea崩溃</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
               <!-- 文章详情页的标签 -->
 
     <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li></ul>
 
             </div>
             <div class="post-categories">
@@ -1885,7 +1566,7 @@
 
 <div class="article-category">
   <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a> <a class="article-category-link" href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a>
+  <a class="article-category-link" href="/categories/Java/">Java</a> <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a> <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Jetbrains/">Jetbrains</a>
 </div>
 
 
@@ -1893,24 +1574,24 @@
           </div>
           <div class="post-img-mobile">
             
-              <a href="/2019/06/30/git-chu-shi-hua-ti-jiao-shi-bai/" class="lazyload" data-original="https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/c080ff4434354e35af9dab0a3ee1b9f7.jpg" style="background-size: cover; 
+              <a href="/2021/08/20/idea-beng-kui-bao-cuo/" class="lazyload" data-original="https://sh-xcx-blog.oss-cn-shanghai.aliyuncs.com/idea-bg.jpeg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
           </div>
           <div class="post-content">
-            git初始化提交失败处理
+            idea崩了打不开
           </div>
         </div>
         <div class="post-more">
-          <a href="/2019/06/30/git-chu-shi-hua-ti-jiao-shi-bai/">
+          <a href="/2021/08/20/idea-beng-kui-bao-cuo/">
             <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/2019/06/30/git-chu-shi-hua-ti-jiao-shi-bai/" class="lazyload" data-original="https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/c080ff4434354e35af9dab0a3ee1b9f7.jpg" style="background-size: cover; 
+          <a href="/2021/08/20/idea-beng-kui-bao-cuo/" class="lazyload" data-original="https://sh-xcx-blog.oss-cn-shanghai.aliyuncs.com/idea-bg.jpeg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -1922,346 +1603,10 @@
         <div class="post-info">
           <div class="post-time">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2021-06-30</span>
+            <span class="post-time">2021-08-18</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/2021/06/30/hong-hei-shu/">红黑树</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/" rel="tag">map</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Java/">Java</a> <a class="article-category-link" href="/categories/Java/map/">map</a> <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/java/">java</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              
-              <a href="/2021/06/30/hong-hei-shu/" class="lazyload" data-original="/medias/12.jpg" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            左旋和右旋
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2021/06/30/hong-hei-shu/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/2021/06/30/hong-hei-shu/" class="lazyload" data-original="/medias/12.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-  
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2021-09-22</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2021/09/22/netty04-you-hua-yu-yuan-ma/">Netty 优化与源码</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nio/" rel="tag">nio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Netty/">Netty</a> <a class="article-category-link" href="/categories/Netty/Java/">Java</a> <a class="article-category-link" href="/categories/Netty/Java/NIO/">NIO</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              
-              <a href="/2021/09/22/netty04-you-hua-yu-yuan-ma/" class="lazyload" data-original="/medias/9.jpg" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            转自黑马教程-Netty教程
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2021/09/22/netty04-you-hua-yu-yuan-ma/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/2021/09/22/netty04-you-hua-yu-yuan-ma/" class="lazyload" data-original="/medias/9.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-  
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2021-09-22</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2021/09/22/netty01-nio/">Netty 基础</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nio/" rel="tag">nio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Netty/">Netty</a> <a class="article-category-link" href="/categories/Netty/Java/">Java</a> <a class="article-category-link" href="/categories/Netty/Java/NIO/">NIO</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              
-              <a href="/2021/09/22/netty01-nio/" class="lazyload" data-original="/medias/10.jpg" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            转自黑马教程-Netty教程
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2021/09/22/netty01-nio/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/2021/09/22/netty01-nio/" class="lazyload" data-original="/medias/10.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-  
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2021-09-22</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2021/09/22/netty02-ru-men/">Netty 入门</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nio/" rel="tag">nio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Netty/">Netty</a> <a class="article-category-link" href="/categories/Netty/Java/">Java</a> <a class="article-category-link" href="/categories/Netty/Java/NIO/">NIO</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              
-              <a href="/2021/09/22/netty02-ru-men/" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            转自黑马教程-Netty教程
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2021/09/22/netty02-ru-men/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/2021/09/22/netty02-ru-men/" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-  
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2021-09-22</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2021/09/22/netty03-jin-jie/">Netty 进阶</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nio/" rel="tag">nio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Netty/">Netty</a> <a class="article-category-link" href="/categories/Netty/Java/">Java</a> <a class="article-category-link" href="/categories/Netty/Java/NIO/">NIO</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              
-              <a href="/2021/09/22/netty03-jin-jie/" class="lazyload" data-original="/medias/10.jpg" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            转自黑马教程-Netty教程
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2021/09/22/netty03-jin-jie/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/2021/09/22/netty03-jin-jie/" class="lazyload" data-original="/medias/10.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-  
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2021-09-13</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2021/09/13/jvm/">jvm详解</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gc/" rel="tag">gc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jvm/" rel="tag">jvm</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Java/">Java</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              
-              <a href="/2021/09/13/jvm/" class="lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            java虚拟机-jvm详解
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2021/09/13/jvm/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/2021/09/13/jvm/" class="lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-  
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2021-09-13</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2021/09/13/nodecanvas/">unity插件-nodeCanvas</a>
+            <a class="post-title-link" href="/2021/08/18/unity-xiang-guan-lian-jie/">Unity链接</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -2276,7 +1621,7 @@
 
 <div class="article-category">
   <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a> <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Unity/">Unity</a>
+  <a class="article-category-link" href="/categories/Shader/">Shader</a> <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a> <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Unity/">Unity</a>
 </div>
 
 
@@ -2284,24 +1629,24 @@
           </div>
           <div class="post-img-mobile">
             
-              <a href="/2021/09/13/nodecanvas/" class="lazyload" data-original="https://unity-cn-cdn-prd.unitychina.cn/assets/styles/i/cn/plate/banner-template1@2x.0f41c70f647b5a8b4b700a39f9ab6a81.jpg" style="background-size: cover; 
+              <a href="/2021/08/18/unity-xiang-guan-lian-jie/" class="lazyload" data-original="https://unity-cn-cdn-prd.unitychina.cn/assets/styles/i/cn/plate/banner-template1@2x.0f41c70f647b5a8b4b700a39f9ab6a81.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
           </div>
           <div class="post-content">
-            unity插件-nodeCanvas
+            unity相关的博客、github链接
           </div>
         </div>
         <div class="post-more">
-          <a href="/2021/09/13/nodecanvas/">
+          <a href="/2021/08/18/unity-xiang-guan-lian-jie/">
             <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/2021/09/13/nodecanvas/" class="lazyload" data-original="https://unity-cn-cdn-prd.unitychina.cn/assets/styles/i/cn/plate/banner-template1@2x.0f41c70f647b5a8b4b700a39f9ab6a81.jpg" style="background-size: cover; 
+          <a href="/2021/08/18/unity-xiang-guan-lian-jie/" class="lazyload" data-original="https://unity-cn-cdn-prd.unitychina.cn/assets/styles/i/cn/plate/banner-template1@2x.0f41c70f647b5a8b4b700a39f9ab6a81.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -2313,105 +1658,42 @@
         <div class="post-info">
           <div class="post-time">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2021-08-20</span>
+            <span class="post-time">2019-01-20</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/2021/08/20/c-bi-ji/">C#笔记</a>
+            <a class="post-title-link" href="/2019/01/20/hello-world/">Hello world</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
               <!-- 文章详情页的标签 -->
 
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
-
             </div>
             <div class="post-categories">
               <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a> <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Unity/">Unity</a>
-</div>
 
 
             </div>
           </div>
           <div class="post-img-mobile">
             
-              <a href="/2021/08/20/c-bi-ji/" class="lazyload" data-original="https://unity-cn-cdn-prd.unitychina.cn/assets/styles/i/cn/plate/banner-template1@2x.0f41c70f647b5a8b4b700a39f9ab6a81.jpg" style="background-size: cover; 
+              <a href="/2019/01/20/hello-world/" class="lazyload" data-original="https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/c080ff4434354e35af9dab0a3ee1b9f7.jpg!sswm" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
           </div>
           <div class="post-content">
-            Action参数回调
+            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
           </div>
         </div>
         <div class="post-more">
-          <a href="/2021/08/20/c-bi-ji/">
+          <a href="/2019/01/20/hello-world/">
             <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/2021/08/20/c-bi-ji/" class="lazyload" data-original="https://unity-cn-cdn-prd.unitychina.cn/assets/styles/i/cn/plate/banner-template1@2x.0f41c70f647b5a8b4b700a39f9ab6a81.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-  
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2021-08-20</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2021/08/20/git-cuo-wu-ti-jiao-xiang-guan/">git代码提交相关</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a> <a class="article-category-link" href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              <a href="/2021/08/20/git-cuo-wu-ti-jiao-xiang-guan/" class="lazyload" data-original="https://sh-xcx-blog.oss-cn-shanghai.aliyuncs.com/git.png" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            git提交以及修正的n种姿势
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2021/08/20/git-cuo-wu-ti-jiao-xiang-guan/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/2021/08/20/git-cuo-wu-ti-jiao-xiang-guan/" class="lazyload" data-original="https://sh-xcx-blog.oss-cn-shanghai.aliyuncs.com/git.png" style="background-size: cover; 
+          <a href="/2019/01/20/hello-world/" class="lazyload" data-original="https://ssyerv1.oss-cn-hangzhou.aliyuncs.com/picture/c080ff4434354e35af9dab0a3ee1b9f7.jpg!sswm" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -2422,19 +1704,19 @@
 <!-- 翻页 -->
 
   <!-- <nav class="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav> -->
   <div class="page-nav">
     
+      <a href="/"
+         class="page-nav-pre">
+         <i class="fa fa-angle-left"></i><span class="ml-5">上一页</span>
+      </a>
+    
     <div class="page-info">
-        <div class="page-info-text">1 / 2</div>
+        <div class="page-info-text">2 / 2</div>
     </div>
     
-      <a href="/page/2/"
-         class="page-nav-next">
-          <span class="mr-5">下一页</span><i class="fa fa-angle-right"></i>
-      </a>
-      
   </div>
 
 
