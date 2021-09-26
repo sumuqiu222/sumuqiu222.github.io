@@ -744,16 +744,16 @@
 <h6 id="复合节点"><a href="#复合节点" class="headerlink" title="复合节点"></a>复合节点</h6><p>Composites work with multiple chid nodes and execute them in some order based on the composite functionality.</p>
 <p>复合节点 与多个子节点一起工作，并根据不同的复合类型按照规定的顺序执行它们</p>
 <blockquote>
-<p><strong>Sequencer</strong></p>
+<p><strong>Sequencer(序列节点)</strong></p>
 <blockquote>
-<p>Sequencer 按照从左到右的顺序执行它的子节点。一旦任何子节点返回Failure，它就会返回Failure。如果所有孩子都返回成功，它将返回成功。</p>
+<p>Sequencer 按照从左到右的顺序执行它的子节点。一旦任何子节点返回Failure，它就会返回Failure。如果所有子节点都返回成功，它将返回成功。</p>
 </blockquote>
 <blockquote>
 <p>若一个子状态返回失败，Sequencer将中断当前正在运行的子状态并返回失败</p>
 </blockquote>
 </blockquote>
 <blockquote>
-<p><strong>Selector</strong></p>
+<p><strong>Selector(选择节点)</strong></p>
 <blockquote>
 <p>Selector 按从左到右的顺序执行它的子节点。只要任何子节点返回成功，它就会返回成功。如果所有子节点都返回失败，它将返回失败。</p>
 <p>若一个子状态返回成功，Selector 将中断当前正在运行的子状态并返回成功</p>
@@ -772,7 +772,7 @@
 </blockquote>
 </blockquote>
 <blockquote>
-<p><strong>Parallel</strong></p>
+<p><strong>Parallel(并行节点)</strong></p>
 <blockquote>
 <p>Parallel 将同时执行它的所有子节点。它可以设置为具有 Sequencer 或 Selector 的策略，如下所示：</p>
 </blockquote>
@@ -788,13 +788,13 @@
 <blockquote>
 <p><strong>Flip Selector</strong></p>
 <blockquote>
-<p>Flip Selector 的工作方式与普通 Selector 类似，但是一旦子节点返回 Success，它就会移动到末尾（右侧）</p>
+<p>Flip Selector 的工作方式与普通 Selector 类似，但是一旦某个子节点返回 Success，那么这个子节点就会移动到末尾（右侧）</p>
 </blockquote>
 </blockquote>
 <blockquote>
 <p><strong>Switch</strong></p>
 <blockquote>
-<p>Switch 节点可以切换 Enum 或 Integer 值。根据当前的 Enum 或整数值是什么，它将执行相应的子节点。中断之前正在运行的子节点</p>
+<p>Switch 节点可以切换 Enum 或 Integer 值。根据当前的 Enum 或整数值是什么，它将执行相应的子节点。</p>
 </blockquote>
 </blockquote>
 <blockquote>
@@ -845,7 +845,7 @@
 </blockquote>
 <p><strong>Guard</strong></p>
 <blockquote>
-<p>如果具有相同指定令牌的另一个 Guard 已经在保护（运行）该令牌，则保护装饰的子进程免于运行</p>
+<p>如果具有相同token令牌的另一个 Guard 已经在运行，当前的子进程不会运行</p>
 </blockquote>
 <p><strong>Override Agent</strong></p>
 <blockquote>
